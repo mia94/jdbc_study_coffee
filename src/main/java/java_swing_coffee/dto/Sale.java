@@ -54,6 +54,27 @@ public class Sale {
 	public void setMarginRate(int marginRate) {
 		this.marginRate = marginRate;
 	}
+	//계산
+	public int salePrice() {
+		int salePrice = price*saleCnt;
+		return salePrice;
+	}
+	
+	public double addPrice() {
+		double addPrice = Math.ceil((price*saleCnt)/11);
+		return addPrice;
+	}
+	
+	public int supply() {
+		
+		return 0;
+	}
+	
+	public double marginPrice() {
+		return 0;
+	}
+	
+	
 	//코드로 비교
 	@Override
 	public int hashCode() {
