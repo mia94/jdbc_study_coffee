@@ -1,11 +1,12 @@
 package java_swing_coffee.dto;
 
 public class Sale {
-	private int no;//번호
-	private String code;//코드
-	private int price;//가격
-	private int saleCnt;//판매수량
-	private int marginRate;//마진율
+	public int no;//번호
+	public String code;//코드
+	public int price;//가격
+	public int saleCnt;//판매수량
+	public int marginRate;//마진율
+	private SaleDetail detail;//SaleDetail에 만들어진 변수를 여기서 이용
 	
 	public Sale() {
 		// TODO Auto-generated constructor stub

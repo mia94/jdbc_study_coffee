@@ -2,15 +2,15 @@ package jdbc_study_coffee;
 
 import static org.junit.Assert.*;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
-public class ConnectionProviderTest {
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+public class ProductDaoTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -30,12 +30,8 @@ public class ConnectionProviderTest {
 	}
 
 	@Test
-	public void SelectProductTest() {
-		try(Connection connection = ConnectionProvider.getConnection()){
-			LogUtil.prnLog(connection.toString());
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	public void test() {
+		fail("Not yet implemented");
 	}
 
 }
