@@ -1,6 +1,7 @@
 package jdbc_study_coffee;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
@@ -13,13 +14,19 @@ import jdbc_study_coffee.jdbc.LogUtil;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class SaleDaoTest {
-	static SaleDao saleDao;
+	static SaleDao dao;
+	
+	public void test01SelectSaleByAll() {
+		List<Sale> list = dao.selectProductByAll();
+		LogUtil.prnLog(list.toString());
+		Assert.assertNotNull(list);//assert는 테스트에서만 이용
+	}
 	
 	@Test
-	public void InsertSale() {
+	public void test02InsertSale() {
 		try {
-			Sale newSale = new Sale(5,"B005",4300,110,11);
-			int row = saleDao.insertSale(newSale);//null포인트
+			Sale newSale = new Sale(5,"A004",4300,110,11);
+			int row = dao.insertSale(newSale);//null포인트
 			LogUtil.prnLog(String.format("row %d", row));
 			Assert.assertEquals(1, row);
 		} catch (SQLException e) {
