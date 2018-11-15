@@ -24,10 +24,10 @@ public class SaleDaoTest {
 	
 	@Test
 	public void test02InsertSale() {
+		Sale newSale = new Sale(5,"A004",4300,110,11);
 		try {
-			Sale newSale = new Sale(5,"A004",4300,110,11);
 			int row = dao.insertSale(newSale);//null포인트
-			LogUtil.prnLog(String.format("row %d", row));
+//			LogUtil.prnLog(String.format("row %d", row));
 			Assert.assertEquals(1, row);
 		} catch (SQLException e) {
 			if (e.getErrorCode() == 1062) {

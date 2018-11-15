@@ -3,6 +3,7 @@ package jdbc_study_coffee.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import jdbc_study_coffee.dto.Sale;
@@ -10,11 +11,10 @@ import jdbc_study_coffee.jdbc.ConnectionProvider;
 import jdbc_study_coffee.jdbc.LogUtil;
 
 public class SaleDaoImpl implements SaleDao {
-	static SaleDao dao;
 	
 	@Override
 	public List<Sale> selectProductByAll() {
-		List<Sale> list = dao.selectProductByAll();
+		List<Sale> list = new ArrayList<>();
 		LogUtil.prnLog(list.toString());
 //		Assert.assertNotNull(list); 테스트 외에는 assert이용 X
 		return null;
