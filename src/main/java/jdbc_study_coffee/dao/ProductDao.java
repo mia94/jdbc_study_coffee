@@ -1,11 +1,12 @@
-package java_swing_coffee.dao;
+package jdbc_study_coffee.dao;
 
 import java.sql.SQLException;
 import java.util.List;
 
-import java_swing_coffee.dto.Product;
+import jdbc_study_coffee.dto.Product;
 
 public interface ProductDao {
+	
 	List<Product> selectProductByAll();
 	
 	int insertProduct(Product product) throws SQLException;

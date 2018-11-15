@@ -1,4 +1,4 @@
-package jdbc_study_coffee;
+package jdbc_study_coffee.jdbc;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

@@ -1,4 +1,4 @@
-package java_swing_coffee.dto;
+package jdbc_study_coffee.dto;
 
 public class SaleDetail{
 	private int salesPrice;//판매금액
@@ -6,6 +6,10 @@ public class SaleDetail{
 	private double addPrice;//부가세액
 	private double marginPrice;//마진액
 	
+	
+	public SaleDetail() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	//get set
 	public int getSalesPrice() {

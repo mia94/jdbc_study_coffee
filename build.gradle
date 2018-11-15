@@ -10,7 +10,7 @@ tasks.withType(JavaCompile){
 
 jar{
     version = 1.0
-    mainClassName = 'jdbc_pool_c3p0_study.Main'//메인클래스가 있는 메소드지정
+    mainClassName = 'jdbc_study_coffee.Main'//메인클래스가 있는 메소드지정
     baseName = 'Erp'
     appendix = 'bin'
     

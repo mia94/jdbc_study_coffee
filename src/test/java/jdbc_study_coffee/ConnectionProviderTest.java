@@ -10,6 +10,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import jdbc_study_coffee.jdbc.ConnectionProvider;
+import jdbc_study_coffee.jdbc.LogUtil;
+
 public class ConnectionProviderTest {
 
 	@BeforeClass

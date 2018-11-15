@@ -1,4 +1,4 @@
-package java_swing_coffee.dto;
+package jdbc_study_coffee.dto;
 
 public class Product {
 	private String code;//제품코드
