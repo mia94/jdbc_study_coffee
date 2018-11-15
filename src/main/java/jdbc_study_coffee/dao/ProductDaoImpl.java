@@ -14,7 +14,6 @@ import jdbc_study_coffee.jdbc.ConnectionProvider;
 import jdbc_study_coffee.jdbc.LogUtil;
 
 public class ProductDaoImpl implements ProductDao {
-//	static ProductDao dao;
 
 	@Override
 	public List<Product> selectProductByAll() {

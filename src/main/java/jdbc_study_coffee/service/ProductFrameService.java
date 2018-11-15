@@ -21,6 +21,7 @@ public class ProductFrameService {
 	public int registerSale(Sale s) throws SQLException {
 		return saleDao.insertSale(s);
 	}
+	
 	public Product searchProduct(Product product) throws SQLException {
 		return productDao.selectProductByNo(product);
 	}

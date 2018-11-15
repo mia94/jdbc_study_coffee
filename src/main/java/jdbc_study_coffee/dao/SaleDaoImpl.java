@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.junit.Assert;
-
 import jdbc_study_coffee.dto.Sale;
 import jdbc_study_coffee.jdbc.ConnectionProvider;
 import jdbc_study_coffee.jdbc.LogUtil;
@@ -18,7 +16,7 @@ public class SaleDaoImpl implements SaleDao {
 	public List<Sale> selectProductByAll() {
 		List<Sale> list = dao.selectProductByAll();
 		LogUtil.prnLog(list.toString());
-		Assert.assertNotNull(list);
+//		Assert.assertNotNull(list); 테스트 외에는 assert이용 X
 		return null;
 	}
 

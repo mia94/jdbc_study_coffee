@@ -10,6 +10,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import jdbc_study_coffee.dto.Product;
+import jdbc_study_coffee.dto.Sale;
 import jdbc_study_coffee.service.ProductFrameService;
 
 import java.awt.GridLayout;
@@ -66,11 +67,10 @@ public class ProductFrame extends JFrame implements ActionListener {
 
 		JLabel lblShowName = new JLabel("");
 		panel.add(lblShowName);
+		//번호 입력시 제품이름이 뜸
 		tfCode.getDocument().addDocumentListener(new MyDocumentListener() {
-
 			@Override
 			public void warning() {
-				//lblName.setText(tfCode.getText());
 				if(tfCode.getText().length()==4) {
 					Product pdt = new Product(tfCode.getText().trim());//입력받은 코드값을 가지고옴
 					try {
@@ -80,8 +80,7 @@ public class ProductFrame extends JFrame implements ActionListener {
 						e.printStackTrace();
 					}
 				}
-			}
-			
+			}	
 		});
 		
 		JLabel lblPrice = new JLabel("제품단가");
@@ -133,6 +132,7 @@ public class ProductFrame extends JFrame implements ActionListener {
 
 	protected void do_btnInput_actionPerformed(ActionEvent e) {
 		//입력된 데이터를 product로 받기 - 입력한 데이터 저장
+		
 		
 	}
 }
