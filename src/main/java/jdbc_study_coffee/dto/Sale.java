@@ -2,100 +2,107 @@ package jdbc_study_coffee.dto;
 
 public class Sale {
 	private int no;//번호
-	private String code;//코드
+//	private String code;//코드
 	private int price;//가격
 	private int saleCnt;//판매수량
 	private int marginRate;//마진율
+	private Product product;
 	private SaleDetail detail;
 	
-	public Sale() {
+	public Sale() { 
 		// TODO Auto-generated constructor stub
 	}
-	//코드만 받기
-	public Sale(String code) {
-		this.code = code;
+
+	public Sale( Product product,int price, int saleCnt, int marginRate, SaleDetail detail) {
+		this.price = price;
+		this.saleCnt = saleCnt;
+		this.marginRate = marginRate;
+		this.product = product;
+		this.detail = detail;
 	}
-	public Sale(int no, String code, int price, int saleCnt, int marginRate) {
+
+	public Sale(int no, Product product, int price, int saleCnt, int marginRate, SaleDetail detail) {
 		this.no = no;
-		this.code = code;
+		this.price = price; 
+		this.saleCnt = saleCnt;
+		this.marginRate = marginRate;
+		this.product = product;
+		this.detail = detail;
+	}
+
+	public Sale(int no,Product product, int price, int saleCnt, int marginRate) {
+		this.no = no;
+		this.product = product;
 		this.price = price;
 		this.saleCnt = saleCnt;
 		this.marginRate = marginRate;
 	}
-	//전부받기
-	public Sale(int no, String code, int price, int saleCnt, int marginRate, SaleDetail detail) {
+
+	public Sale(int no, int price, int saleCnt, int marginRate, SaleDetail detail) {
 		this.no = no;
-		this.code = code;
 		this.price = price;
 		this.saleCnt = saleCnt;
 		this.marginRate = marginRate;
 		this.detail = detail;
 	}
-	//get, set
+
 	public int getNo() {
 		return no;
 	}
+
 	public void setNo(int no) {
 		this.no = no;
 	}
-	public String getCode() {
-		return code;
-	}
-	public void setCode(String code) {
-		this.code = code;
-	}
+
 	public int getPrice() {
 		return price;
 	}
+
 	public void setPrice(int price) {
 		this.price = price;
 	}
+
 	public int getSaleCnt() {
 		return saleCnt;
 	}
+
 	public void setSaleCnt(int saleCnt) {
 		this.saleCnt = saleCnt;
 	}
+
 	public int getMarginRate() {
 		return marginRate;
 	}
+
 	public void setMarginRate(int marginRate) {
 		this.marginRate = marginRate;
 	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
 	public SaleDetail getDetail() {
 		return detail;
 	}
+
 	public void setDetail(SaleDetail detail) {
 		this.detail = detail;
 	}
-	//코드로 비교
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((code == null) ? 0 : code.hashCode());
-		return result;
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Sale other = (Sale) obj;
-		if (code == null) {
-			if (other.code != null)
-				return false;
-		} else if (!code.equals(other.code))
-			return false;
-		return true;
-	}
+
 	@Override
 	public String toString() {
-		return String.format("Sale [%s, %s, %s, %s, %s, %s]", no, code, price, saleCnt, marginRate, detail);
+		return String.format("Sale [%s, %s, %s, %s, %s, %s]", no, price, saleCnt, marginRate, product, detail);
 	}
+
+	
+	
+	
+
 	
 	
 	

@@ -35,9 +35,11 @@ public class ProductFrame extends JFrame implements ActionListener {
 	private JLabel lblName;
 	
 	private ProductFrameService service;
+	private JButton btnOutput1;
+	private JButton btnOutput2;
 
 
-	public ProductFrame() {
+	public ProductFrame() { 
 		service = new ProductFrameService();
 		initComponents();
 	}
@@ -112,21 +114,25 @@ public class ProductFrame extends JFrame implements ActionListener {
 		btnInput.addActionListener(this);
 		panel_1.add(btnInput);
 
-		JButton btnOutput1 = new JButton("출력1");
+		btnOutput1 = new JButton("출력1");
+		btnOutput1.addActionListener(this);
 		panel_1.add(btnOutput1);
 
-		JButton btnOutput2 = new JButton("출력2");
+		btnOutput2 = new JButton("출력2");
+		btnOutput2.addActionListener(this);
 		panel_1.add(btnOutput2);
-		btnOutput2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
 	}
 
 	// 입력버튼 눌렀을 시
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnOutput2) {
+			do_btnOutput2_actionPerformed(e);
+		}
+		if (e.getSource() == btnOutput1) {
+			do_btnOutput1_actionPerformed(e);
+		}
 		if (e.getSource() == btnInput) {
-			do_btnInput_actionPerformed(e);
+			do_btnInput_actionPerformed(e);  
 		}
 	}
 
@@ -139,16 +145,28 @@ public class ProductFrame extends JFrame implements ActionListener {
 			e1.printStackTrace();
 		}
 		System.out.println("입력 된 값 추가");
-		service.selectSaleByAll();
+		try {
+			service.selectSaleByAll();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
 	}
 
 	private Sale getSale() {
-		String code = tfCode.getText().trim();
+		Product code = new Product(tfCode.getText().trim());
 		int price = Integer.parseInt(tfPrice.getText().trim());
 		int saleCnt = Integer.parseInt(tfSaleCnt.getText().trim());
 		int marginRate = Integer.parseInt(tfMarginRate.getText().trim());
 		
 		return new Sale(0 ,code , price, saleCnt, marginRate);
+	}
+	protected void do_btnOutput1_actionPerformed(ActionEvent e) {
+		SalePriceTableUi ui = new SalePriceTableUi();
+		ui.setVisible(true);
+	}
+	protected void do_btnOutput2_actionPerformed(ActionEvent e) {
+		SalePriceTableUi ui = new SalePriceTableUi();
+		ui.setVisible(false);
 	}
 }
 

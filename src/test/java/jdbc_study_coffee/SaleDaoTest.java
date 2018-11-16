@@ -13,6 +13,7 @@ import org.junit.runners.MethodSorters;
 
 import jdbc_study_coffee.dao.SaleDao;
 import jdbc_study_coffee.dao.SaleDaoImpl;
+import jdbc_study_coffee.dto.Product;
 import jdbc_study_coffee.dto.Sale;
 import jdbc_study_coffee.jdbc.LogUtil;
 
@@ -34,11 +35,12 @@ public class SaleDaoTest {
 	}
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() throws Exception { 
 		System.out.println();
 	}
-
-	public void test01SelectSaleByAll() {
+	
+	@Test
+	public void test01SelectSaleByAll() throws SQLException {
 		List<Sale> list = dao.selectProductByAll();
 		LogUtil.prnLog(list.toString());
 		Assert.assertNotNull(list);//assert는 테스트에서만 이용
@@ -46,7 +48,8 @@ public class SaleDaoTest {
 	
 	/*@Test
 	public void test02InsertSale() {
-		Sale newSale = new Sale(5,"A004",4300,110,11);
+		Product product = new Product("A004");
+		Sale newSale = new Sale(5,product,4300,110,11);
 		try {
 			int row = dao.insertSale(newSale);
 			LogUtil.prnLog(String.format("row %d", row));
@@ -55,4 +58,14 @@ public class SaleDaoTest {
 				LogUtil.prnLog(e);
 		}
 	}*/
+	
+	@Test
+	public void test03selectProductRank() throws SQLException {
+		dao.selectProductRank(true);
+	}
+	
+	@Test
+	public void test04selectProductRank() throws SQLException {
+		dao.selectProductRank(false);
+	}
 }

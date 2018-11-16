@@ -16,8 +16,8 @@ public class ProductFrameService {
 	
 	public ProductFrameService() {
 		saleDao = new SaleDaoImpl();
-		productDao = new ProductDaoImpl();
-	}
+		productDao = new ProductDaoImpl(); 
+	} 
 	
 	public List<Sale> selectSaleByAll() throws SQLException {
 		return saleDao.selectProductByAll();

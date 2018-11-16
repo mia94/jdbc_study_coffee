@@ -15,7 +15,7 @@ public class Product {
 	//코드,이름 모두 받기
 	public Product(String code, String name) {
 		this.code = code;
-		this.name = name;
+		this.name = name; 
 	}
 	//get, set
 	public String getCode() {
@@ -54,8 +54,11 @@ public class Product {
 			return false;
 		return true;
 	}
-	
-	
+	@Override
+	public String toString() {
+		return String.format("Product [%s, %s]", code, name);
+	}
+
 	
 	
 }
