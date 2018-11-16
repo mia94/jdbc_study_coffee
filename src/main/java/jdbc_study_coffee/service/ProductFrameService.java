@@ -1,6 +1,7 @@
 package jdbc_study_coffee.service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import jdbc_study_coffee.dao.ProductDao;
 import jdbc_study_coffee.dao.ProductDaoImpl;
@@ -16,6 +17,10 @@ public class ProductFrameService {
 	public ProductFrameService() {
 		saleDao = new SaleDaoImpl();
 		productDao = new ProductDaoImpl();
+	}
+	
+	public List<Sale> selectSaleByAll() throws SQLException {
+		return saleDao.selectProductByAll();
 	}
 	
 	public int registerSale(Sale s) throws SQLException {

@@ -6,7 +6,7 @@ import java.util.List;
 import jdbc_study_coffee.dto.Sale;
 
 public interface SaleDao {
-	List<Sale> selectProductByAll();
+	List<Sale> selectProductByAll() throws SQLException;
 	
 	int insertSale(Sale sale) throws SQLException;
 }

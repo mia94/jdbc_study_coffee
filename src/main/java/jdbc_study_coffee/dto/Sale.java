@@ -6,7 +6,7 @@ public class Sale {
 	private int price;//가격
 	private int saleCnt;//판매수량
 	private int marginRate;//마진율
-	private SaleDetail detail;//SaleDetail에 만들어진 변수를 여기서 이용
+	private SaleDetail detail;
 	
 	public Sale() {
 		// TODO Auto-generated constructor stub
@@ -15,13 +15,21 @@ public class Sale {
 	public Sale(String code) {
 		this.code = code;
 	}
-	//전부받기
 	public Sale(int no, String code, int price, int saleCnt, int marginRate) {
 		this.no = no;
 		this.code = code;
 		this.price = price;
 		this.saleCnt = saleCnt;
 		this.marginRate = marginRate;
+	}
+	//전부받기
+	public Sale(int no, String code, int price, int saleCnt, int marginRate, SaleDetail detail) {
+		this.no = no;
+		this.code = code;
+		this.price = price;
+		this.saleCnt = saleCnt;
+		this.marginRate = marginRate;
+		this.detail = detail;
 	}
 	//get, set
 	public int getNo() {
@@ -54,8 +62,12 @@ public class Sale {
 	public void setMarginRate(int marginRate) {
 		this.marginRate = marginRate;
 	}
-	
-	
+	public SaleDetail getDetail() {
+		return detail;
+	}
+	public void setDetail(SaleDetail detail) {
+		this.detail = detail;
+	}
 	//코드로 비교
 	@Override
 	public int hashCode() {
@@ -82,7 +94,7 @@ public class Sale {
 	}
 	@Override
 	public String toString() {
-		return String.format("Sale [%s, %s, %s, %s, %s]", no, code, price, saleCnt, marginRate);
+		return String.format("Sale [%s, %s, %s, %s, %s, %s]", no, code, price, saleCnt, marginRate, detail);
 	}
 	
 	

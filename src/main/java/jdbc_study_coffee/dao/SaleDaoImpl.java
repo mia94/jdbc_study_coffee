@@ -2,6 +2,7 @@ package jdbc_study_coffee.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,11 +14,32 @@ import jdbc_study_coffee.jdbc.LogUtil;
 public class SaleDaoImpl implements SaleDao {
 	
 	@Override
-	public List<Sale> selectProductByAll() {
+	public List<Sale> selectProductByAll() throws SQLException {
 		List<Sale> list = new ArrayList<>();
 		LogUtil.prnLog(list.toString());
 //		Assert.assertNotNull(list); 테스트 외에는 assert이용 X
-		return null;
+		String sql = "select num, code, price, saleCnt, marginRate from sale";
+		try(Connection conn = ConnectionProvider.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+				ResultSet rs = pstmt.executeQuery()){
+			LogUtil.prnLog(pstmt);
+			while(rs.next()) {
+				list.add(getSale(rs));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return list;
+	}
+
+	private Sale getSale(ResultSet rs) throws SQLException {
+		int num = rs.getInt("num");
+		String code = rs.getString("code");
+		int price = rs.getInt("price");
+		int saleCnt = rs.getInt("saleCnt");
+		int marginRate = rs.getInt("marginRate");
+		return new Sale(num,code,price,saleCnt,marginRate);
 	}
 
 	@Override

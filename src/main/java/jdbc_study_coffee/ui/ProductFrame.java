@@ -132,7 +132,35 @@ public class ProductFrame extends JFrame implements ActionListener {
 
 	protected void do_btnInput_actionPerformed(ActionEvent e) {
 		//입력된 데이터를 product로 받기 - 입력한 데이터 저장
+		Sale sale = getSale();
+		try {
+			service.registerSale(sale);
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		System.out.println("입력 된 값 추가");
+		service.selectSaleByAll();
+	}
+
+	private Sale getSale() {
+		String code = tfCode.getText().trim();
+		int price = Integer.parseInt(tfPrice.getText().trim());
+		int saleCnt = Integer.parseInt(tfSaleCnt.getText().trim());
+		int marginRate = Integer.parseInt(tfMarginRate.getText().trim());
 		
-		
+		return new Sale(0 ,code , price, saleCnt, marginRate);
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
