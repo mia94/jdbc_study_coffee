@@ -37,6 +37,11 @@ public class ProductFrame extends JFrame implements ActionListener {
 	private ProductFrameService service;
 	private JButton btnOutput1;
 	private JButton btnOutput2;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel_3;
+	private JTextField tfName;
 
 
 	public ProductFrame() { 
@@ -66,9 +71,6 @@ public class ProductFrame extends JFrame implements ActionListener {
 
 		lblName = new JLabel("제품이름");
 		panel.add(lblName);
-
-		JLabel lblShowName = new JLabel("");
-		panel.add(lblShowName);
 		//번호 입력시 제품이름이 뜸
 		tfCode.getDocument().addDocumentListener(new MyDocumentListener() {
 			@Override
@@ -77,7 +79,7 @@ public class ProductFrame extends JFrame implements ActionListener {
 					Product pdt = new Product(tfCode.getText().trim());//입력받은 코드값을 가지고옴
 					try {
 						Product updatePdt =  service.searchProduct(pdt);
-						lblShowName.setText(updatePdt.getName());
+						tfName.setText(updatePdt.getName());
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
@@ -85,12 +87,22 @@ public class ProductFrame extends JFrame implements ActionListener {
 			}	
 		});
 		
+		tfName = new JTextField();
+		panel.add(tfName);
+		tfName.setColumns(10);
+		
 		JLabel lblPrice = new JLabel("제품단가");
 		panel.add(lblPrice);
 
 		tfPrice = new JTextField();
 		tfPrice.setColumns(10);
 		panel.add(tfPrice);
+		
+		lblNewLabel = new JLabel("");
+		panel.add(lblNewLabel);
+		
+		lblNewLabel_1 = new JLabel("");
+		panel.add(lblNewLabel_1);
 
 		JLabel lblSaleCnt = new JLabel("판매수량");
 		panel.add(lblSaleCnt);
@@ -98,6 +110,12 @@ public class ProductFrame extends JFrame implements ActionListener {
 		tfSaleCnt = new JTextField();
 		tfSaleCnt.setColumns(10);
 		panel.add(tfSaleCnt);
+		
+		lblNewLabel_2 = new JLabel("");
+		panel.add(lblNewLabel_2);
+		
+		lblNewLabel_3 = new JLabel("");
+		panel.add(lblNewLabel_3);
 
 		JLabel lblMarginRate = new JLabel("마진율");
 		panel.add(lblMarginRate);
