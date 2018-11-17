@@ -2,11 +2,14 @@ package jdbc_study_coffee.ui;
 
 import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.JScrollPane;
 import java.awt.BorderLayout;
 import java.util.List;
 
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
 
 import jdbc_study_coffee.dto.Sale;
 
@@ -32,6 +35,28 @@ public class ProductRankPanel extends JPanel {
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
+		setAlignWidth();
+	}
+	private void setAlignWidth() {
+		tableCellAlignment(SwingConstants.CENTER,0,1,2);
+		tableCellAlignment(SwingConstants.RIGHT,3,4,5,6,7,8,9);
+		tableSetWidth(80,100,200,200,200,300,300,300,200,300);
+		
+	}
+	private void tableSetWidth(int...width) {
+		TableColumnModel tcm = table.getColumnModel();
+		for(int i=0;i<width.length;i++) {
+			tcm.getColumn(i).setPreferredWidth(width[i]);
+		}
+	}
+	private void tableCellAlignment(int align, int...idx) {
+		DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();
+		dtcr.setHorizontalAlignment(align);
+		
+		TableColumnModel tcm = table.getColumnModel();
+		for(int i=0;i<idx.length;i++) {
+			tcm.getColumn(idx[i]).setCellRenderer(dtcr);
+		}
 	}
 	public void loadDatas() {
 		table.setModel(new DefaultTableModel(
