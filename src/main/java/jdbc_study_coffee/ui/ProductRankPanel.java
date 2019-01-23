@@ -35,11 +35,11 @@ public class ProductRankPanel extends JPanel {
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
-		setAlignWidth();
+//		setAlignWidth();
 	}
 	private void setAlignWidth() {
-		tableCellAlignment(SwingConstants.CENTER,0,1,2);
-		tableCellAlignment(SwingConstants.RIGHT,3,4,5,6,7,8,9);
+		tableCellAlignment(SwingConstants.CENTER,0,1,2,3,4,5,6,7,8,9);
+		//tableCellAlignment(SwingConstants.RIGHT,3,4,5,6,7,8,9);
 		tableSetWidth(80,100,200,200,200,300,300,300,200,300);
 		
 	}
