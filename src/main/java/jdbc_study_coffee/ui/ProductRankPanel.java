@@ -43,12 +43,6 @@ public class ProductRankPanel extends JPanel {
 		tableSetWidth(80,100,200,200,200,300,300,300,200,300);
 		
 	}
-	private void tableSetWidth(int...width) {
-		TableColumnModel tcm = table.getColumnModel();
-		for(int i=0;i<width.length;i++) {
-			tcm.getColumn(i).setPreferredWidth(width[i]);
-		}
-	}
 	private void tableCellAlignment(int align, int...idx) {
 		DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();
 		dtcr.setHorizontalAlignment(align);
@@ -58,11 +52,21 @@ public class ProductRankPanel extends JPanel {
 			tcm.getColumn(idx[i]).setCellRenderer(dtcr);
 		}
 	}
+	
+	private void tableSetWidth(int...width) {
+		TableColumnModel tcm = table.getColumnModel();
+		for(int i=0;i<width.length;i++) {
+			tcm.getColumn(i).setPreferredWidth(width[i]);
+		}
+	}
+	
 	public void loadDatas() {
 		table.setModel(new DefaultTableModel(
 				getDatas(),
 				getColumnTitle()
 		));
+		
+		setAlignWidth();
 	}
 	
 	private Object[][] getDatas() {
